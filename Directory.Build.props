@@ -1,0 +1,371 @@
+<Project>
+  <PropertyGroup Label="Configure Valheim mod properties">
+    <ValheimBepinAssemblyDir>$(VALHEIM_BEPINEX_ASSEMBLY_DIR)\</ValheimBepinAssemblyDir>
+    <ValheimAssemblyDir>$(VALHEIM_ASSEMBLY_DIR)\</ValheimAssemblyDir>
+    <ValheimUnstrippedAssemblyDir>$(VALHEIM_UNSTRIPPED_ASSEMBLY_DIR)\</ValheimUnstrippedAssemblyDir>
+
+    <UseWildcardValheimReferences>true</UseWildcardValheimReferences>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Configure project defaults">
+    <LangVersion>9.0</LangVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Configure assembly names and namespaces">
+    <AssemblyName>$(SolutionName).$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>$(AssemblyName)</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Normalise stack trace file locations"
+    Condition="$(BuildingInsideVisualStudio) != 'true'">
+    <PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=X:\</PathMap>
+  </PropertyGroup>
+
+  <ItemGroup Label="Valheim references (static)"
+    Condition="'$(UseWildcardValheimReferences)' != 'true'">
+    <Reference Include="0Harmony">
+      <HintPath>$(ValheimBepinAssemblyDir)0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="assembly_googleanalytics">
+      <HintPath>$(ValheimAssemblyDir)assembly_googleanalytics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="assembly_guiutils">
+      <HintPath>$(ValheimAssemblyDir)assembly_guiutils.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="assembly_lux">
+      <HintPath>$(ValheimAssemblyDir)assembly_lux.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="assembly_postprocessing">
+      <HintPath>$(ValheimAssemblyDir)assembly_postprocessing.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="assembly_simplemeshcombine">
+      <HintPath>$(ValheimAssemblyDir)assembly_simplemeshcombine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="assembly_steamworks">
+      <HintPath>$(ValheimAssemblyDir)assembly_steamworks.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="assembly_sunshafts">
+      <HintPath>$(ValheimAssemblyDir)assembly_sunshafts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="assembly_utils">
+      <HintPath>$(ValheimAssemblyDir)assembly_utils.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="assembly_valheim">
+      <HintPath>$(ValheimAssemblyDir)assembly_valheim.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>$(ValheimBepinAssemblyDir)BepInEx.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.Posix">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)Mono.Posix.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)Mono.Security.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)mscorlib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)System.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)System.Configuration.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)System.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)System.Numerics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)System.Security.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)System.Xml.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.AccessibilityModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.AIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AndroidJNIModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.AndroidJNIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.AnimationModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.ARModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.AudioModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.ClothModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.ClusterInputModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.ClusterRendererModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.CrashReportingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.DirectorModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.DSPGraphModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.DSPGraphModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.GameCenterModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.GridModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.HotReloadModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.InputModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.JSONSerializeModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.LocalizationModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.ParticleSystemModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.PerformanceReportingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.Physics2DModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ProfilerModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.ProfilerModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.ScreenCaptureModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.SharedInternalsModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.SpriteMaskModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.SpriteShapeModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.StreamingModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.StreamingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.SubstanceModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.SubstanceModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.SubsystemsModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.SubsystemsModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.TerrainModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.TerrainPhysicsModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.TextCoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.TilemapModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TLSModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.TLSModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.UIElementsModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.UIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UmbraModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.UmbraModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.UNETModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.UnityAnalyticsModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.UnityConnectModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityTestProtocolModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.UnityTestProtocolModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.VehiclesModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.VFXModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.VideoModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.VRModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.WindModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule">
+      <HintPath>$(ValheimUnstrippedAssemblyDir)UnityEngine.XRModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Label="Valheim references (wildcard)"
+    Condition="'$(UseWildcardValheimReferences)' == 'true'">
+    <Reference Include="$(ValheimBepinAssemblyDir)**\*.dll">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(ValheimAssemblyDir)**\*.dll">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(ValheimUnstrippedAssemblyDir)**\*.dll">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Label="Thunderstore files">
+    <Thunderstore Include="manifest.json" />
+    <Thunderstore Include="README.md" />
+    <Thunderstore Include="logo.png" />
+  </ItemGroup>
+</Project>

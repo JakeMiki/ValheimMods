@@ -1,0 +1,21 @@
+﻿{
+  "ManifestVersion": 2,
+  "AuthorName": "JakeMiki",
+  "Name": "JakeMiki-ValheimMetricsExporter",
+  "DisplayName": "ValheimMetricsExporter",
+  "Version": "0.1.0",
+  "Licence": "MIT",
+  "WebsiteURL": "https://github.com/JakeMiki/ValheimMods",
+  "Description": "Provides Prometheus metrics through custom endpoint or Pushgateway",
+  "GameVersion": "N/A",
+  "Dependencies": [],
+  "OptionalDependencies": [],
+  "Incompatibilities": [],
+  "NetworkMode": "both",
+  "PackageType": "mod",
+  "InstallMode": "managed",
+  "Loaders": [
+    "bepinex"
+  ],
+  "ExtraData": {}
+}
